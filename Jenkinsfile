@@ -13,5 +13,14 @@ pipeline {
                 bat 'pip install --user -r requirements.txt'
             }
         }
+
+        stage('Groovy'){
+            steps {
+                script {
+                    groove = load 'main.groovy'
+                    groove.func('prod')
+                }
+            }
+        }
     }
 }
